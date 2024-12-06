@@ -1,8 +1,9 @@
 import NextAuth from "next-auth";
+import { Session } from "next-auth";
+import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
-  // Configure one or more authentication providers
   providers: [
     GoogleProvider({
       clientId:
@@ -16,8 +17,26 @@ const handler = NextAuth({
           throw new Error("GOOGLE_SECRET is not defined");
         })(),
     }),
-    // ...add more providers here
   ],
+  callbacks: {
+    async session({
+      session,
+      token,
+    }: {
+      session: Session;
+      token: JWT;
+    }): Promise<Session> {
+      // Add `username` and `uid` to session.user
+      if (session.user) {
+        session.user.username = session.user?.name
+          ?.split(" ")
+          .join("")
+          .toLocaleLowerCase();
+        session.user.uid = token.sub;
+      }
+      return session;
+    },
+  },
 });
 
 export { handler as GET, handler as POST };
