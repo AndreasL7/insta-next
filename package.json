@@ -9,15 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/react-icons": "^2.2.7",
     "next": "15.0.4",
     "next-auth": "^4.24.10",
+    "prop-types": "^15.8.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
+    "react-modal": "^3.16.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-modal": "^3.16.3",
     "eslint": "^8",
     "eslint-config-next": "15.0.4",
     "postcss": "^8",
