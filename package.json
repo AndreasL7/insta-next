@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/react-icons": "^2.2.7",
+    "firebase": "^11.0.2",
     "next": "15.0.4",
     "next-auth": "^4.24.10",
     "prop-types": "^15.8.1",
