@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { HiOutlineDotsVertical } from "react-icons/hi";
+import LikeSection from "./LikeSection";
 
 interface PostProps {
   post: {
@@ -33,6 +34,7 @@ const Post = ({ post }: PostProps) => {
         height={640}
         className="object-cover w-full"
       />
+      <LikeSection id={post.id} />
 
       <p className="p-5 truncate">
         <span className="font-bold mr-2">{post.username}</span>
